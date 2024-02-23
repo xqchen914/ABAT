@@ -102,9 +102,6 @@ if __name__ == '__main__':
     parser.add_argument('--dataset', type=str, default='20140091')
     parser.add_argument('--cross_balance', type=int, default=0)
     
-    parser.add_argument('--attacks', nargs='+',default=['FGSM', 'PGD'])#['FGSM', 'PGD']
-    parser.add_argument('--epss', nargs='+',type=float,default=[0.001,0.003,0.005,0.01,0.03,0.05])#[0.001,0.003,0.005,0.01,0.03,0.05]
-
 
     parser.add_argument('--setup', type=str, default='within')
     parser.add_argument('--ea', type=str, default='sess') # no sub sess
@@ -212,7 +209,6 @@ if __name__ == '__main__':
         logging.info(model_load_path)
 
 
-    # ========================model train========================
     r_acc, r_bca, r_adv_acc, r_adv_bca = [], [], [], []
     for r in range(args.repeat):
         seed(r)
