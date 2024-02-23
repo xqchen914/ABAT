@@ -249,6 +249,10 @@ if __name__ == '__main__':
             elif args.dataset == 'weibo':
                 x_train, y_train, x_test, y_test = weiboLoad(id=t,
                                                             setup=args.setup, ea=args.ea)  
+            elif args.dataset == 'bcimi':
+                x_train, y_train, x_test, y_test = bcimiLoad(id=t,
+                                                            setup=args.setup, ea=args.ea)  
+
 
 
             logging.info(f'train: {x_train.shape},{x_train.mean()},{x_train.std()}, test: {x_test.shape},{x_test.mean()},{x_test.std()}')
