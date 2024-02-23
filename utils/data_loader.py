@@ -73,12 +73,10 @@ def MI2014001Load(id: int, setup: Optional[str] = 'within',ea: Optional[str] = '
 
 
 def weiboLoad(id: int, setup: Optional[str] = 'within',ea: Optional[str] = 'no',p=2):
-    if ea == 'sub':
-        data_path = '/data1/cxq/data/processed-weibo-2014subea/'
-    elif ea == 'no':
+    if ea == 'no':
         data_path = '/data1/cxq/data/processed-weibo-2014/'
     elif ea == 'sess':
-        data_path = '/data1/cxq/data/processed-weibo-2014sea/'
+        data_path = '/data1/cxq/data/processed-weibo-2014subea/'
     x_train, y_train, x_test, y_test = [], [], [], []
     if setup == 'within':
             data = scio.loadmat(data_path + f's{id}.mat')
@@ -292,4 +290,49 @@ def p3002014009Load(id: int, setup: Optional[str] = 'within',ea: Optional[str] =
     else:
         raise Exception('No such Experiment setup.')
 
+    return x_train, y_train.squeeze(), x_test, y_test.squeeze()
+
+def bcimiLoad(id: int, setup: Optional[str] = 'within', ea: Optional[str] = 'no',p: Optional[int] = 2):
+    if ea == 'sess':
+        data_path = '/data1/cxq/data/bci_mi_processedsea/'
+    elif ea == 'no':
+        data_path = '/data1/cxq/data/bci_mi_processed/'
+    x_train, y_train, x_test, y_test = [], [], [], []
+    if setup == 'within':
+        data = scio.loadmat(data_path + f's{id}_e.mat')
+        x_train, y_train = data['x'], data['y']
+        y_train = np.squeeze(y_train.flatten())
+
+        data = scio.loadmat(data_path + f's{id}_t.mat')
+        x_test, y_test = data['x'], data['y']
+        y_test = np.squeeze(y_test.flatten())    
+    elif setup == 'cross':
+        for i in range(60):
+
+            data = scio.loadmat(data_path + f's{i}_e.mat')
+            x1, y1 = data['x'], data['y']
+            y1 = np.squeeze(y1.flatten())
+
+            data = scio.loadmat(data_path + f's{i}_t.mat')
+            x2, y2 = data['x'], data['y']
+            y2 = np.squeeze(y2.flatten())
+
+            x = np.concatenate((x1,x2))
+            y = np.concatenate((y1,y2)).reshape(-1)
+
+            if i == id:
+                x_test, y_test = x, y
+            else:
+                x_train.append(x)
+                y_train.append(y)
+
+        x_train = np.concatenate(x_train)
+        y_train = np.hstack(y_train)
+        
+        print(x_train.shape)
+        print(y_train.shape)
+    else:
+        raise Exception('No such Experiment setup')
+
+    
     return x_train, y_train.squeeze(), x_test, y_test.squeeze()
