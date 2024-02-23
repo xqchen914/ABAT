@@ -13,3 +13,13 @@ python main.py --model=EEGNet --dataset=MI2014001 --setup=within --ea=sess --tra
 ```python
 python eval_online.py --model=EEGNet --dataset=MI2014001 --setup=within --ea=sess --train=ATchastd --AT_eps=0.01
 ```
+
+## Run offline cross-subject domain adaptation experiments
+First, pretrain a model using other subjects' data:
+```python
+python main.py --model=EEGNet --dataset=MI2014001 --setup=cross --ea=sess --train=NT
+```
+Then, re-train the model on the target subject's data:
+```python
+python main.py --model=EEGNet --dataset=MI2014001 --setup=within --ea=sess --train=ATchastd --AT_eps=0.01 --FT=1
+```
