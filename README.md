@@ -27,5 +27,7 @@ python main.py --model=EEGNet --dataset=MI2014001 --setup=within --ea=sess --tra
 ## Run with models with defined number of convolution kernals 
 ```python
 python eval_modelcapa.py --model=ShallowCNN --dataset=MI2014001 --midDim=40 --setup=within --ea=sess --train=ATchastd --AT_eps=0.01
+```
+```python
 python eval_modelcapa.py --model=DeepCNN --dataset=weibo --d1=10 --d2=20 --d3=40 --setup=within --ea=sess --train=ATchastd --AT_eps=0.01
 ```
