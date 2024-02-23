@@ -6,5 +6,5 @@ Run MIget2014001.py, MIgetweibo.py, epfldata.py, erp2014009.py, mi2.py to get pr
 
 ## Run offline cross-session/-block experiments
 ```python
-python main.py --model=EEGNet --dataset=MI2014001 --setup=within --ea=sess --train=ATchastd
+python main.py --model=EEGNet --dataset=MI2014001 --setup=within --ea=sess --train=ATchastd --AT_eps=0.01
 ```
