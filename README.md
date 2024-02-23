@@ -23,3 +23,9 @@ Then, re-train the model on the target subject's data:
 ```python
 python main.py --model=EEGNet --dataset=MI2014001 --setup=within --ea=sess --train=ATchastd --AT_eps=0.01 --FT=1
 ```
+
+## Run with models with defined number of convolution kernals 
+```python
+python eval_modelcapa.py --model=ShallowCNN --dataset=MI2014001 --midDim=40 --setup=within --ea=sess --train=ATchastd --AT_eps=0.01
+python eval_modelcapa.py --model=DeepCNN --dataset=weibo --d1=10 --d2=20 --d3=40 --setup=within --ea=sess --train=ATchastd --AT_eps=0.01
+```
