@@ -295,9 +295,7 @@ if __name__ == '__main__':
                                                 ['normal']+[i+str(j) for i in args.attacks for j in args.epss]]))
 
 
-    # 使用ExcelWriter创建Excel文件
     with pd.ExcelWriter(excel_name) as writer:
-        # 将DataFrame保存到指定工作表
         recorder_bca.to_excel(writer, sheet_name='bca')
         recorder_acc.to_excel(writer, sheet_name='acc')
 
