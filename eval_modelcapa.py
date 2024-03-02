@@ -293,9 +293,7 @@ if __name__ == '__main__':
                index = pd.MultiIndex.from_product([[m+str(n) for m,n in zip(args.train,args.train_AT_eps)],
                                                    ['normal']+[i+str(j) for i in args.attacks for j in args.epss]]))
 
-    # 使用ExcelWriter创建Excel文件
     with pd.ExcelWriter(excel_name) as writer:
-        # 将DataFrame保存到指定工作表
         recorder_bca_pd.to_excel(writer, sheet_name='bca')
         recorder_acc_pd.to_excel(writer, sheet_name='acc')
 
