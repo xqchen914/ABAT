@@ -32,8 +32,8 @@ def get_one_sub(sid):
     tdata = data_path + f"A0{sid}T.gdf"
     tdata = mne.io.read_raw_gdf(tdata, preload=True, exclude=['EOG-left', 'EOG-central', 'EOG-right'])
 
-    event_position = tdata.annotations.onset  # 事件位置列表
-    event_type = tdata.annotations.description  # 事件名称
+    event_position = tdata.annotations.onset  
+    event_type = tdata.annotations.description  
     x = tdata.to_data_frame()
     
     x = x.T.to_numpy()[:22,:]
