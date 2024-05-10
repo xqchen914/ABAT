@@ -1,5 +1,6 @@
 # ABAT
-This repository is the implementation of alignment-based adversarial training from paper "Alignment-Based Adversarial Training (ABAT) for Improving the Robustness and Accuracy of EEG-Based BCIs".
+This repository is the implementation of alignment-based adversarial training from paper "Alignment-Based Adversarial Training (ABAT) for Improving the Robustness and Accuracy of EEG-Based BCIs". Please contact xqchen@hust.edu.cn if you have any questions.
+
 
 ## Data preparation
 Run MIget2014001.py, MIgetweibo.py, epfldata.py, erp2014009.py, mi2.py to get preprocessed datasets.
