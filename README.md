@@ -10,7 +10,7 @@ Run MIget2014001.py, MIgetweibo.py, epfldata.py, erp2014009.py, mi2.py to get pr
 python main.py --model=EEGNet --dataset=MI2014001 --setup=within --ea=sess --train=ATchastd --AT_eps=0.01
 ```
 
-## Test cross-session models in online scenario
+## Test cross-session model performance in online scenario
 ```python
 python eval_online.py --model=EEGNet --dataset=MI2014001 --setup=within --ea=sess --train=ATchastd --AT_eps=0.01
 ```
