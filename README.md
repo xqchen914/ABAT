@@ -3,7 +3,7 @@ This repository is the implementation of alignment-based adversarial training fr
 
 
 ## Data preparation
-Run MIget2014001.py, MIgetweibo.py, epfldata.py, erp2014009.py, mi2.py to get preprocessed datasets.
+Downlowd data, and then run MIget2014001.py, MIgetweibo.py, epfldata.py, erp2014009.py, mi2.py to get preprocessed datasets.
 
 ## Run offline cross-session/-block experiments
 ```python
